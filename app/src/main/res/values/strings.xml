@@ -4,4 +4,5 @@
     <string name="button_addNew">New Task</string>
     <string name="taskName">My task</string>
     <string name="task_description">Task description</string>
+    <string name="task_description_goes_here">Task description goes here.</string>
 </resources>

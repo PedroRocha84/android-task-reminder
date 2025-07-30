@@ -25,6 +25,9 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
         this.tasks = tasks;
     }
 
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 
     @NonNull
     @Override
@@ -37,9 +40,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.taskName.setText(tasks.get(position).getTitle());
         holder.taskDescriptionView.setText(tasks.get(position).getDescription());
-        Task task = tasks.get(position);
-        Log.d("TaskAdapter", "Binding task: " + task.getTitle());
-        Log.d("TaskAdapter", "Binding task: " + task.getDescription());
+
     }
 
     @Override
@@ -59,5 +60,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
             taskDescriptionView = itemView.findViewById(R.id.editText_taskDescription);
         }
     }
+
+
 
 }

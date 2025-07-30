@@ -11,17 +11,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import pt.pedrorocha.android.taskmanager.R;
 import pt.pedrorocha.android.taskmanager.model.Task;
+import pt.pedrorocha.android.taskmanager.model.TaskDbHelper;
+import pt.pedrorocha.android.taskmanager.model.TaskDbSchema;
+import pt.pedrorocha.android.taskmanager.model.TaskService;
 
 public class MainActivity extends AppCompatActivity {
+
+    public TaskAdapter adapter;
+    public TaskService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TaskAdapter adapter = new TaskAdapter(this, Task.list());
+        TaskDbHelper dbHelper = new TaskDbHelper(this); //CREATE DB
 
-        Log.d("MainActivity", "Tasks size: " + Task.list().size());
+        service = new TaskService(dbHelper);
+        adapter = new TaskAdapter(this, service.list());
+
+// Tell service about the adapter
+        service.setAdapter(adapter);
+
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -33,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, NewTaskActivity.class);
             startActivity(intent);
         });
-
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh task list
+        adapter.setTasks(service.list());
+        adapter.notifyDataSetChanged();
+    }
+
 }

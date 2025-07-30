@@ -1,4 +1,4 @@
-package pt.pedrorocha.android.taskmanager;
+package pt.pedrorocha.android.taskmanager.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;

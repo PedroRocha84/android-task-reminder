@@ -1,17 +1,19 @@
-package pt.pedrorocha.android.taskmanager;
+package pt.pedrorocha.android.taskmanager.view;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import pt.pedrorocha.android.taskmanager.R;
+import pt.pedrorocha.android.taskmanager.model.Task;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder> {
 

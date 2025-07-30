@@ -29,7 +29,9 @@ app/
 │ │ │ └── pt/pedrorocha/android/android-task-manager/
 │ │ │ │ └── model/
 │ │ │ │ │ └── Task.class 
-│ │ │ │ │ └── Task.class
+│ │ │ │ │ └── TaskDbHelper.class
+│ │ │ │ │ └── TaskDbSchema.class
+│ │ │ │ │ └── TaskService.class
 │ │ │ │ └── view/
 │ │ │ │ │ └── MainActivity.class
 │ │ │ │ │ └── NewTaskActivity.class

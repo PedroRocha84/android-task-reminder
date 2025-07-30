@@ -1,16 +1,16 @@
-package pt.pedrorocha.android.taskmanager;
+package pt.pedrorocha.android.taskmanager.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import pt.pedrorocha.android.taskmanager.R;
+import pt.pedrorocha.android.taskmanager.model.Task;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TaskAdapter adapter = new TaskAdapter(this,Task.list());
+        TaskAdapter adapter = new TaskAdapter(this, Task.list());
 
         Log.d("MainActivity", "Tasks size: " + Task.list().size());
 
@@ -28,10 +28,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-//        Button btnNewTask = findViewById(R.id.button);
-//        btnNewTask.setOnClickListener(v->{
-//
-//        });
+        Button btnNewTask = findViewById(R.id.button);
+        btnNewTask.setOnClickListener(v->{
+            Intent intent = new Intent(this, NewTaskActivity.class);
+            startActivity(intent);
+        });
 
     }
 }

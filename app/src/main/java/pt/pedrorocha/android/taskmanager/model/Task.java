@@ -6,17 +6,16 @@ import java.util.List;
 
 public class Task {
 
-    private int id;
+    private Long id;
     private String title;
     private String description;
 
-    public Task(int id, String title, String description) {
-        this.id = id;
+    public Task( String title, String description) {
         this.title = title;
         this.description = description;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -28,10 +27,14 @@ public class Task {
         return description;
     }
 
-    public static List<Task> list(){
-        Task task1 = new Task(0,"My first task", "A little description for testing my app");
-        Task task2 = new Task(1,"My second task", "A little description for testing my app");
-
-        return new ArrayList<>(Arrays.asList(task1,task2));
+    public void setId(long id){
+        this.id = id;
     }
+
+//    public static List<Task> list(){
+//        Task task1 = new Task(0,"My first task", "A little description for testing my app");
+//        Task task2 = new Task(1,"My second task", "A little description for testing my app");
+//
+//        return new ArrayList<>(Arrays.asList(task1,task2));
+//    }
 }
